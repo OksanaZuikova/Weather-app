@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Weather application</title>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/c07fa490f3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form>
+          <input
+            type="text"
+            placeholder="Enter the city"
+            autocomplete="off"
+            id="search-text-input"
+          />
+          <button type="submit" class="btn btn-primary">Search</button>
+          <button class="btn btn-location" id="location">Current</button>
+        </form>
+        <div class="row">
+          <div class="col-10 current-value">
+            <div class="row city">
+              <div class="col-7">
+                <h1></h1>
+              </div>
+              <div class="col-5">
+                <ul class="current-time">
+                  <li id="date"></li>
+                  <li id="time"></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <p class="temperature">
+                  ☀ <span class="degrees" id="degrees"></span
+                  ><a href="#" id="celsius"> °C</a> |
+                  <a href="#" class="fahrenheit" id="fahrenheit">°F</a>
+                  <br />
+                  <span id="description" class="main-description"></span>
+                </p>
+              </div>
+              <div class="col-6">
+                <p class="description">
+                  <br />
+                  Humidity: <span id="humidity"></span>%
+                  <br />
+                  Wind: <span id="wind"></span> km/h
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 last-cities">
+            <h2>Previous cities</h2>
+            <ul>
+              <li>Lisbon</li>
+              <li>New York</li>
+              <li>Tokyo</li>
+            </ul>
+          </div>
+        </div>
+        <div class="days">
+          <p>
+            <span class="day">Mon</span>
+            <span class="day">Tue</span>
+            <span class="day">Wen</span>
+            <span class="day">Thu</span>
+            <span class="day">Fri</span>
+            <span class="day">Sut</span>
+            <span>Sun</span>
+          </p>
+          <p>
+            <span><i class="fa-solid fa-cloud"></i></span>
+            <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
+            <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
+            <span><i class="fa-solid fa-cloud-sun"></i></span>
+            <span><i class="fa-solid fa-cloud-sun"></i></span>
+            <span><i class="fa-solid fa-cloud"></i></span>
+            <span><i class="fa-solid fa-cloud"></i></span>
+          </p>
+        </div>
+        <div class="row add-inform">
+          <div class="col-6">
+            <h3>UV Index</h3>
+            <h3>Pressure</h3>
+            <h3>Moonrise</h3>
+            <h3>Moonset</h3>
+            <h3>Precipitation</h3>
+            <h3>Cloud Cover</h3>
+          </div>
+          <div class="col-6">
+            <p>3 of 10</p>
+            <p><span id="pressure">1008</span> mb</p>
+            <p>9:27 pm</p>
+            <p>8:07 am</p>
+            <p>0.0 mm</p>
+            <p><span id="clouds">77</span>%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

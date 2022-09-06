@@ -1,0 +1,133 @@
+body {
+  font-family: "Poppins", sans-serif;
+  padding: 30px 20px;
+  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/37728/pexels-photo-37728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
+h1,
+h2,
+h3 {
+  font-family: "Merriweather", serif;
+  width: 700;
+  color: rgb(172, 4, 54);
+}
+h1 {
+  padding-left: 20px;
+}
+h2 {
+  font-size: 14px;
+  text-align: center;
+}
+h3 {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+input {
+  padding: 7px 9px 7px 20px;
+  width: 240px;
+}
+form {
+  margin-bottom: 30px;
+}
+p {
+  color: rgb(2, 1, 56);
+  font-size: 16px;
+}
+ul {
+  font-size: 12px;
+  padding: 2px 5px 2px 16px;
+}
+a {
+  color: rgb(2, 1, 56);
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(2, 1, 56);
+}
+.fahrenheit:hover {
+  text-decoration: none;
+  color: #717086;
+}
+.current-time {
+  list-style: none;
+  font-size: 16px;
+  color: rgb(2, 1, 56);
+  text-align: center;
+}
+
+.weather-app {
+  max-width: 530px;
+  margin: 0 auto;
+}
+.btn {
+  padding: 7.5px;
+  width: 90px;
+  background: rgb(172, 4, 54);
+  border: 1px solid rgb(172, 4, 54);
+  transition: all 2s linear;
+}
+.btn:hover {
+  background: rgb(172, 4, 54);
+  border: 1px solid rgb(172, 4, 54);
+  opacity: 0.8;
+}
+.btn-location {
+  padding: 7.5px;
+  margin-left: 5px;
+  width: 90px;
+  color: #fff;
+  background: rgb(223, 33, 90);
+  border: 1px solid rgb(223, 33, 90);
+  transition: all 2s linear;
+}
+.btn-location:hover {
+  color: #fff;
+  background: rgb(223, 33, 90);
+  border: 1px solid rgb(223, 33, 90);
+  opacity: 0.8;
+}
+.temperature {
+  font-size: 28px;
+}
+.fahrenheit {
+  color: #717086;
+}
+.main-description {
+  display: block;
+  color: rgb(2, 1, 56);
+  font-size: 20px;
+  margin-left: 30px;
+}
+.description {
+  text-align: right;
+  padding-right: 30px;
+}
+.city {
+  margin-bottom: 30px;
+}
+.days {
+  border: 1px solid rgb(2, 1, 56);
+  width: 430px;
+  padding: 20px 20px 10px 20px;
+  margin: 20px 0px;
+}
+.day {
+  padding: 0px 10.5px;
+}
+.fa-solid {
+  padding: 0px 12.5px;
+  font-size: 22px;
+  color: orangered;
+}
+.last-cities {
+  border: 1px solid rgb(2, 1, 56);
+  padding: 7px;
+}
+.add-inform {
+  margin-top: 30px;
+  padding-left: 40px;
+}
+.add-inform p {
+  font-size: 14px;
+}
