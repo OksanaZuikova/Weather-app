@@ -131,3 +131,11 @@ a:hover {
 .add-inform p {
   font-size: 14px;
 }
+.git {
+  color: rgb(2, 1, 56);
+  font-size: 14px;
+  margin-left: 160px;
+}
+.git:hover {
+  color: rgb(172, 4, 54);
+}
