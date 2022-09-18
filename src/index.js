@@ -84,12 +84,32 @@ function showTemperature(response) {
   let descriptionValue = response.data.weather[0].main;
   let description = document.querySelector("#description");
   description.innerHTML = descriptionValue;
+  let minTempValue = Math.round(response.data.main.temp_min);
+  let minTemp = document.querySelector("#min-temp");
+  minTemp.innerHTML = minTempValue;
+  let maxTempValue = Math.round(response.data.main.temp_max);
+  let maxTemp = document.querySelector("#max-temp");
+  maxTemp.innerHTML = maxTempValue;
   let pressureValue = response.data.main.pressure;
   let pressure = document.querySelector("#pressure");
   pressure.innerHTML = pressureValue;
   let cloudsValue = response.data.clouds.all;
   let clouds = document.querySelector("#clouds");
   clouds.innerHTML = cloudsValue;
+  let sunriseTime = new Date(response.data.sys.sunrise * 1000);
+  let sunrise = document.querySelector("#sunrise");
+  let sunriseMinutes = sunriseTime.getMinutes();
+  if (sunriseMinutes < 10) {
+    sunriseMinutes = `0${sunriseMinutes}`;
+  }
+  sunrise.innerHTML = `${sunriseTime.getHours()}:${sunriseMinutes}`;
+  let sunsetTime = new Date(response.data.sys.sunset * 1000);
+  let sunset = document.querySelector("#sunset");
+  let sunsetMinutes = sunsetTime.getMinutes();
+  if (sunsetMinutes < 10) {
+    sunsetMinutes = `0${sunsetMinutes}`;
+  }
+  sunset.innerHTML = `${sunriseTime.getHours()}:${sunsetMinutes}`;
 }
 
 function showValue(searchCity) {
