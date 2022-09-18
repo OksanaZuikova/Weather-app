@@ -87,6 +87,10 @@ a:hover {
   border: 1px solid rgb(223, 33, 90);
   opacity: 0.8;
 }
+.icon {
+  max-width: 65px;
+  margin-left: 5px;
+}
 .temperature {
   font-size: 28px;
 }
@@ -97,11 +101,12 @@ a:hover {
   display: block;
   color: rgb(2, 1, 56);
   font-size: 20px;
-  margin-left: 30px;
+  margin-left: 22px;
 }
 .description {
   text-align: right;
   padding-right: 30px;
+  padding-top: 15px;
 }
 .city {
   margin-bottom: 30px;
@@ -131,11 +136,14 @@ a:hover {
 .add-inform p {
   font-size: 14px;
 }
-.git {
-  color: rgb(2, 1, 56);
-  font-size: 14px;
-  margin-left: 160px;
-}
-.git:hover {
+.git-link {
   color: rgb(172, 4, 54);
+  font-size: 14px;
+  margin-left: 50px;
+}
+.git-link:hover {
+  color: rgb(2, 1, 56);
+}
+.git {
+  margin-top: 40px;
 }

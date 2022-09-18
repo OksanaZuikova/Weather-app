@@ -45,10 +45,11 @@ time.innerHTML = `${day} ${hours}:${minutes}`;
 
 let celsius = document.querySelector("#celsius");
 let fahrenheit = document.querySelector("#fahrenheit");
+let celsiusValue;
 
 function showFahrenheit(event) {
   event.preventDefault();
-  let fahrenheitValue = (23 * 9) / 5 + 32;
+  let fahrenheitValue = (celsiusValue * 9) / 5 + 32;
   let degrees = document.querySelector(".degrees");
   degrees.innerHTML = Math.round(fahrenheitValue);
   fahrenheit.style.color = "#020138";
@@ -59,7 +60,6 @@ fahrenheit.addEventListener("click", showFahrenheit);
 
 function showCelsius(event) {
   event.preventDefault();
-  let celsiusValue = 23;
   let degrees = document.querySelector(".degrees");
   degrees.innerHTML = celsiusValue;
   fahrenheit.style.color = "#717086";
@@ -69,7 +69,10 @@ function showCelsius(event) {
 celsius.addEventListener("click", showCelsius);
 
 function showTemperature(response) {
+  fahrenheit.style.color = "#717086";
+  celsius.style.color = "#020138";
   let temperature = Math.round(response.data.main.temp);
+  celsiusValue = temperature;
   let city = response.data.name;
   let degrees = document.querySelector("#degrees");
   degrees.innerHTML = temperature;
@@ -110,6 +113,12 @@ function showTemperature(response) {
     sunsetMinutes = `0${sunsetMinutes}`;
   }
   sunset.innerHTML = `${sunriseTime.getHours()}:${sunsetMinutes}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showValue(searchCity) {
