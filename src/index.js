@@ -43,34 +43,44 @@ if (minutes < 10) {
 }
 time.innerHTML = `${day} ${hours}:${minutes}`;
 
-let celsius = document.querySelector("#celsius");
-let fahrenheit = document.querySelector("#fahrenheit");
-let celsiusValue;
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitValue = (celsiusValue * 9) / 5 + 32;
-  let degrees = document.querySelector(".degrees");
-  degrees.innerHTML = Math.round(fahrenheitValue);
-  fahrenheit.style.color = "#020138";
-  celsius.style.color = "#717086";
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  return days[day];
 }
 
-fahrenheit.addEventListener("click", showFahrenheit);
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row days">`;
 
-function showCelsius(event) {
-  event.preventDefault();
-  let degrees = document.querySelector(".degrees");
-  degrees.innerHTML = celsiusValue;
-  fahrenheit.style.color = "#717086";
-  celsius.style.color = "#020138";
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML += `
+            <div class="col-2">
+              <p>${formatDay(forecastDay.dt)}</p>
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt="forecast-icon" class="forecast-icon" />
+              <p class="forecast-temperature">${Math.round(
+                forecastDay.temp.day
+              )}°C</p>
+            </div>`;
+    }
+  });
+
+  forecastHTML += `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
-celsius.addEventListener("click", showCelsius);
+function getForecast(coordinates) {
+  let apiKey = "97f8e93f00107773f88eafd933ce86b7";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function showTemperature(response) {
-  fahrenheit.style.color = "#717086";
-  celsius.style.color = "#020138";
   let temperature = Math.round(response.data.main.temp);
   celsiusValue = temperature;
   let city = response.data.name;
@@ -119,6 +129,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function showValue(searchCity) {

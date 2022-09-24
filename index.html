@@ -36,7 +36,7 @@
           <button class="btn btn-location" id="location">Current</button>
         </form>
         <div class="row">
-          <div class="col-10 current-value">
+          <div class="col-12 current-value">
             <div class="row city">
               <div class="col-7">
                 <h1></h1>
@@ -52,9 +52,7 @@
               <div class="col-6">
                 <p class="temperature">
                   <img src="#" alt="weather-icon" id="icon" class="icon" />
-                  <span class="degrees" id="degrees"></span
-                  ><a href="#" id="celsius"> °C</a> |
-                  <a href="#" class="fahrenheit" id="fahrenheit">°F</a>
+                  <span class="degrees" id="degrees"></span> °C
                   <br />
                   <span id="description" class="main-description"></span>
                 </p>
@@ -68,35 +66,8 @@
               </div>
             </div>
           </div>
-          <div class="col-2 last-cities">
-            <h2>Previous cities</h2>
-            <ul>
-              <li>Lisbon</li>
-              <li>New York</li>
-              <li>Tokyo</li>
-            </ul>
-          </div>
         </div>
-        <div class="days">
-          <p>
-            <span class="day">Mon</span>
-            <span class="day">Tue</span>
-            <span class="day">Wen</span>
-            <span class="day">Thu</span>
-            <span class="day">Fri</span>
-            <span class="day">Sut</span>
-            <span>Sun</span>
-          </p>
-          <p>
-            <span><i class="fa-solid fa-cloud"></i></span>
-            <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
-            <span><i class="fa-solid fa-cloud-showers-heavy"></i></span>
-            <span><i class="fa-solid fa-cloud-sun"></i></span>
-            <span><i class="fa-solid fa-cloud-sun"></i></span>
-            <span><i class="fa-solid fa-cloud"></i></span>
-            <span><i class="fa-solid fa-cloud"></i></span>
-          </p>
-        </div>
+        <div class="weather-forecast" id="forecast"></div>
         <div class="row add-inform">
           <div class="col-6">
             <h3>Pressure</h3>
@@ -106,7 +77,7 @@
             <h3>Min temperature</h3>
             <h3>Max temperature</h3>
           </div>
-          <div class="col-6">
+          <div class="col-6 add-inform-values">
             <p><span id="pressure"></span> mb</p>
             <p><span id="sunrise"></span> am</p>
             <p><span id="sunset"></span> pm</p>
